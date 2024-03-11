@@ -7,11 +7,7 @@ services:
       - 3000:3000
     volumes:
       - ./frontend:/app
-  web-tests:
-    image: vidly_web
-    volumes:
-      - ./frontend:/app
-    command: npm test
+      
   api:
     build: ./backend
     ports:
@@ -20,7 +16,7 @@ services:
       DB_URL: mongodb://db/vidly
     volumes:
       - ./backend:/app
-    command: ./docker-entrypoint.sh
+    command: ['sh', 'docker-entrypoint.sh']
   db:
     image: mongo:4.0-xenial
     ports:
