@@ -1,4 +1,4 @@
-FROM node:14.16.0-alpine3.13
+FROM node:20.11.1-alpine3.19
 
 RUN addgroup app && adduser -S -G app app
 USER app
@@ -8,6 +8,6 @@ COPY package*.json ./
 RUN npm install
 COPY . . 
 
-EXPOSE 3001 
+EXPOSE 8080 
 
 CMD ["npm", "start"]
